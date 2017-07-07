@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+</style>
+</head>
+<body onload="onload()">
+  <div id='topbar'>
+  </div>
+  <h1>Encrypt and decrypt with Caesar</h1>
+  <input placeholder='Input' id='input'>
+  <button id='crypt'>En/Decrypt</button>
+  <p id='output'></p>
+  <script src='caesar.js'></script>
+</body>
+</html
