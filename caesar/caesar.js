@@ -1,5 +1,6 @@
 var input;
 var key;
+var charCodes = [];
 var cryptedArray = [];
 var cryptedString = '';
 var output = document.getElementById('output');
@@ -17,12 +18,14 @@ function resetValues() {
   cryptedString = '';
   input = document.getElementById('input').value;
   key = document.getElementById('key').value;
-  console.log(key);
 }
 
 function addCodesToArray(){
   for (let letter of input){
-    console.log('2      ' + key);
-    cryptedArray.push(String.fromCharCode(letter.charCodeAt(0) + key))
+    charCodes.push(letter.charCodeAt(0) + key);
+    cryptedArray.push(String.fromCharCode(letter.charCodeAt(0) + parseInt(key)));
   }
+    console.log(key);
+    console.log(charCodes);
+    console.log(cryptedArray);
 }
