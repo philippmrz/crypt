@@ -15,6 +15,7 @@ crypt.onclick = function(){
 
 function resetValues() {
   cryptedArray = [];
+  charCodes = [];
   cryptedString = '';
   input = document.getElementById('input').value;
   key = document.getElementById('key').value;
@@ -22,10 +23,22 @@ function resetValues() {
 
 function addCodesToArray(){
   for (let letter of input){
-    charCodes.push(letter.charCodeAt(0) + key);
-    cryptedArray.push(String.fromCharCode(letter.charCodeAt(0) + parseInt(key)));
+    charCodes.push(getEncryptedCharCode(letter));
+    cryptedArray.push(String.fromCharCode(getEncryptedCharCode(letter)));
   }
-    console.log(key);
-    console.log(charCodes);
-    console.log(cryptedArray);
+}
+
+function getEncryptedCharCode(char){
+  var charCode;
+  charCode = char.charCodeAt(0) + parseInt(key);
+  if(charCode > 90 && charCode < 97 && key < 0){
+    charCode += 26;
+  } else if (charCode > 122){
+    charCode -= 26;
+  } else if (charCode < 65){
+    charCode += 26;
+  }else if (charCode > 90 && charCode < 97 && key > 0){
+    charCode -= 26;
+  }
+  return charCode;
 }
