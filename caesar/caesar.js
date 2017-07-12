@@ -1,23 +1,28 @@
-function onload(){
-  var input;
-  var charCodes = [];
-  var cryptedArray = [];
-  var cryptedString = '';
-  var output = document.getElementById('output');
-  var crypt = document.getElementById('crypt');
-  crypt.onclick = function(){
-    cryptedArray = [];
-    cryptedString = '';
-    input = document.getElementById('input').value;
-    for (let letter of input){
-      charCodes.push(letter.charCodeAt(0) + 10);
-      cryptedArray.push(String.fromCharCode(letter.charCodeAt(0) + 10))
-    }
-    console.log(charCodes);
-    console.log(cryptedArray);
-    for (let letter of cryptedArray){
-      cryptedString += letter;
-    }
-    output.innerHTML = cryptedString;
-  };
+var input;
+var key;
+var cryptedArray = [];
+var cryptedString = '';
+var output = document.getElementById('output');
+var crypt = document.getElementById('crypt');
+
+crypt.onclick = function(){
+  resetValues();
+  addCodesToArray();
+  cryptedString = cryptedArray.join('');
+  output.innerHTML = cryptedString;
+};
+
+function resetValues() {
+  cryptedArray = [];
+  cryptedString = '';
+  input = document.getElementById('input').value;
+  key = document.getElementById('key').value;
+  console.log(key);
+}
+
+function addCodesToArray(){
+  for (let letter of input){
+    console.log('2      ' + key);
+    cryptedArray.push(String.fromCharCode(letter.charCodeAt(0) + key))
+  }
 }

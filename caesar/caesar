@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-</style>
+  <title>Caesar Encryption</title>
+  <link rel='stylesheet' href='caesar.css'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
 </head>
-<body onload="onload()">
+<body>
   <div id='topbar'>
   </div>
   <h1>Encrypt and decrypt with Caesar</h1>
-  <input placeholder='Input' id='input'>
+  <p id='intro'>Enter the text you want to encrypt below and choose the key you want to encrypt with, then click the button.</p>
+  <div id="wrapper">
+    <input placeholder='Input' id='input'>
+    <input type='number' max="25" min="-25" id="key">
+  </div>
+  <br>
   <button id='crypt'>En/Decrypt</button>
   <p id='output'></p>
   <script src='caesar.js'></script>
